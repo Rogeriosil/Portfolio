@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio | Rogério de Oliveira Silva</title>
+  <meta name="description" content="Portfólio profissional de Rogério de Oliveira Silva, Desenvolvedor Back-End Python com foco em APIs REST, automação, Flask, dados e integrações." />
+  <style>
+    :root{
+      --bg:#f3f7ff;
+      --surface:#ffffff;
+      --surface-2:#eef4ff;
+      --text:#10203a;
+      --muted:#53657f;
+      --line:#d8e4fb;
+      --primary:#2563eb;
+      --primary-2:#4f46e5;
+      --accent:#3157b7;
+      --shadow:0 18px 45px rgba(37,99,235,.10);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,Segoe UI,Arial,sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.10), transparent 28%),
+        radial-gradient(circle at top right, rgba(79,70,229,.08), transparent 22%),
+        linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
+      color:var(--text);
+    }
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1180px;margin:0 auto;padding:0 22px}
+    .nav{
+      position:sticky;top:0;z-index:50;
+      background:rgba(255,255,255,.88);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:16px;padding:16px 0;
+    }
+    .brand{font-weight:800;display:flex;align-items:center;gap:12px}
+    
+    .brand-photo{
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      object-fit:cover;
+      border: 2px solid #4f46e5;
+    }
+
+    .brand-badge{
+      width:40px;height:40px;border-radius:14px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:#fff;display:grid;place-items:center;font-weight:800;
+      box-shadow:var(--shadow);
+    }
+    .nav-links{display:flex;gap:18px;flex-wrap:wrap}
+    .nav-links a{font-size:14px;color:var(--muted);font-weight:600}
+    .nav-links a:hover{color:var(--primary)}
+    .hero{padding:74px 0 44px}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+    .badge{
+      display:inline-block;padding:10px 14px;border-radius:999px;
+      background:#e8f0ff;color:#1d4ed8;border:1px solid #c9dcff;
+      font-size:13px;font-weight:800;margin-bottom:18px;
+    }
+    h1{margin:0;font-size:54px;line-height:1.02;letter-spacing:-1.3px}
+    .subtitle{margin-top:14px;font-size:22px;font-weight:800;color:var(--accent)}
+    .lead{margin-top:18px;max-width:720px;font-size:17px;line-height:1.85;color:var(--muted)}
+    .cta{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:14px 18px;border-radius:16px;font-weight:800;font-size:15px;
+      border:1px solid transparent;transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:#fff;box-shadow:0 14px 30px rgba(37,99,235,.22);
+    }
+    .btn-secondary{background:#fff;color:var(--text);border-color:var(--line)}
+    .btn-secondary:hover{border-color:#b8cbef}
+    .card{
+      background:rgba(255,255,255,.9);border:1px solid var(--line);
+      border-radius:var(--radius);box-shadow:var(--shadow);
+    }
+    .hero-card{padding:22px}
+    .window-head{display:flex;gap:8px;margin-bottom:18px}
+    .dot{width:12px;height:12px;border-radius:50%}
+    .red{background:#fb7185}.yellow{background:#facc15}.green{background:#4ade80}
+    .code{
+      background:#f7faff;border:1px solid #d9e7ff;border-radius:20px;
+      padding:18px;font-family:Consolas,monospace;font-size:14px;line-height:1.8;
+      color:#183153;overflow:auto;
+    }
+    .blue{color:#2563eb}.cyan{color:#0f766e}.ok{color:#15803d}
+    .stats{padding:10px 0 24px}
+    .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .stat{padding:24px}
+    .stat .label{font-size:14px;color:var(--muted)}
+    .stat .value{margin-top:8px;font-size:24px;font-weight:900}
+    section{padding:22px 0}
+    .kicker{
+      font-size:12px;text-transform:uppercase;letter-spacing:.18em;
+      font-weight:900;color:var(--accent);margin-bottom:10px;
+    }
+    .section-title{margin:0;font-size:34px;line-height:1.1;letter-spacing:-.6px}
+    .about-card,.skills-card,.contact-card,.github-card,.special-card{padding:30px}
+    .text{color:var(--muted);line-height:1.9;font-size:17px}
+    .projects-grid,.github-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:22px}
+    .project{padding:26px}
+    .project h3{margin:0 0 12px 0;font-size:22px}
+    .project p{margin:0;color:var(--muted);line-height:1.75}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+    .tag{
+      padding:8px 11px;border-radius:999px;font-size:12px;font-weight:800;
+      background:#edf4ff;border:1px solid #d1e2ff;color:#21458e;
+    }
+    .project-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .ghost{
+      display:inline-block;padding:10px 14px;border-radius:12px;
+      background:#fff;border:1px solid var(--line);color:var(--text);
+      font-weight:800;font-size:14px;
+    }
+    .ghost:hover{border-color:#b8cbef}
+    .skills-list{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .skills-list span{
+      padding:10px 14px;border-radius:14px;background:#f4f8ff;
+      border:1px solid #dbe6fb;color:#23406e;font-size:14px;font-weight:800;
+    }
+    .special-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+    .special-box{
+      padding:18px;border-radius:18px;background:#f8fbff;border:1px solid #dce8fd;
+    }
+    .special-box h3{margin:0 0 10px 0;font-size:20px}
+    .special-box ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.8}
+    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+    .contact-cta{
+      padding:30px;border-radius:var(--radius);
+      background:linear-gradient(135deg,#2563eb,#4f46e5);color:#fff;
+      box-shadow:0 18px 45px rgba(37,99,235,.25);
+    }
+    .contact-cta p{line-height:1.85;color:#e8efff}
+    .mini-note{
+      margin-top:16px;padding:12px 14px;border-radius:14px;
+      background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.22);
+      color:#fff;font-size:14px;
+    }
+    .contact-item{margin-bottom:18px}
+    .contact-item:last-child{margin-bottom:0}
+    .contact-item .label{font-size:13px;color:var(--muted);margin-bottom:5px}
+    .contact-item .value{font-size:16px;font-weight:800;word-break:break-word}
+    .github-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+    .github-stat{
+      padding:18px;border-radius:18px;background:#f8fbff;border:1px solid #dce8fd;
+    }
+    .github-stat .small{font-size:13px;color:var(--muted)}
+    .github-stat .big{font-size:26px;font-weight:900;margin-top:6px}
+    .github-note{margin-top:14px;color:var(--muted);font-size:14px}
+    .loading{color:var(--muted);margin-top:14px}
+    .footer{padding:26px 0 48px;color:var(--muted);text-align:center;font-size:14px}
+    .whatsapp{
+      position:fixed;right:20px;bottom:20px;z-index:60;background:#25D366;color:#fff;
+      padding:14px 18px;border-radius:999px;font-weight:800;border:0;
+      box-shadow:0 14px 25px rgba(37,211,102,.28);
+    }
+    .whatsapp:hover{transform:translateY(-1px)}
+    @media (max-width: 920px){
+      .hero-grid,.stats-grid,.projects-grid,.github-grid,.special-grid,.contact-grid,.github-stats{grid-template-columns:1fr}
+      .nav-inner{flex-direction:column;align-items:flex-start}
+      h1{font-size:40px}
+      .subtitle{font-size:18px}
+      .section-title{font-size:28px}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <img src="rogerio-dev.jpg" alt="Rogério de Oliveira da Silva" class="brand-photo">
+        <div>Rogério de Oliveira da Silva</div>
+      </div>
+      <div class="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#stack">Tecnologias</a>
+        <a href="#especializacao">Especialização</a>
+        <a href="#github-auto">GitHub</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">Disponível para oportunidades</div>
+        <h1>Desenvolvedor Back-End Python</h1>
+        <div class="subtitle">APIs REST • Flask • Automação • Integrações • Dados</div>
+        <p class="lead">
+          Desenvolvedor com foco em <strong>Python</strong>, <strong>APIs REST</strong>,
+          <strong>automação de processos</strong>, <strong>Flask</strong>,
+          <strong>análise de dados</strong> e <strong>integração entre sistemas</strong>.
+          Crio soluções práticas para otimizar rotinas, reduzir tarefas manuais e apoiar operações com mais eficiência.
+        </p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+          <a class="btn btn-secondary" href="https://github.com/Rogeriosil" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/rogerio-de-oliveira-silva1" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn btn-secondary" href="mailto:rogeriothelast@gmail.com">E-mail</a>
+        </div>
+      </div>
+
+      <div class="card hero-card">
+        <div class="window-head">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <div class="code">
+          <div><span class="blue">const</span> perfil = {</div>
+          <div>&nbsp;&nbsp;nome: <span class="cyan">"Rogério"</span>,</div>
+          <div>&nbsp;&nbsp;foco: <span class="cyan">"Backend Python"</span>,</div>
+          <div>&nbsp;&nbsp;stack: <span class="cyan">["Python", "Flask", "Pandas", "SQL"]</span>,</div>
+          <div>&nbsp;&nbsp;especialidade: <span class="cyan">"APIs, automação e dados"</span>,</div>
+          <div>&nbsp;&nbsp;objetivo: <span class="ok">"Atuar como desenvolvedor júnior"</span></div>
+          <div>}</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="container stats-grid">
+      <div class="card stat">
+        <div class="label">Foco principal</div>
+        <div class="value">Backend com Python</div>
+      </div>
+      <div class="card stat">
+        <div class="label">Especialidade</div>
+        <div class="value">Automação e APIs</div>
+      </div>
+      <div class="card stat">
+        <div class="label">Objetivo</div>
+        <div class="value">Primeira oportunidade em tecnologia</div>
+      </div>
+    </div>
+  </div>
+
+  <section id="sobre">
+    <div class="container">
+      <div class="card about-card">
+        <div class="kicker">Sobre mim</div>
+        <h2 class="section-title">Perfil profissional</h2>
+        <p class="text">
+          Tenho experiência prática com criação de scripts, automações, consultas em sistemas web
+          e análise de dados com Python. Gosto de desenvolver soluções que tragam produtividade,
+          organização e redução de tarefas manuais. Busco uma oportunidade para aplicar meus conhecimentos,
+          evoluir tecnicamente e contribuir com projetos reais em backend, automação e integração de sistemas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <div class="container">
+      <div class="kicker">Portfólio</div>
+      <h2 class="section-title">Projetos em destaque</h2>
+      <div class="projects-grid">
+        <div class="card project">
+          <h3>Emissão de Notas Fiscais API</h3>
+          <p>Sistema de emissão de notas fiscais com API REST, processamento de Excel e frontend React.</p>
+          <div class="tags">
+            <span class="tag">API REST</span>
+            <span class="tag">React</span>
+            <span class="tag">Excel</span>
+            <span class="tag">Backend</span>
+          </div>
+          <div class="project-actions">
+            <a class="ghost" href="https://github.com/Rogeriosil/emiss-o-notas-ficais-api" target="_blank" rel="noopener noreferrer">Ver projeto</a>
+          </div>
+        </div>
+
+        <div class="card project">
+          <h3>HelpDesk Sistema de Chamados</h3>
+          <p>Sistema de chamados com API Flask e frontend React para gerenciamento de suporte.</p>
+          <div class="tags">
+            <span class="tag">Flask</span>
+            <span class="tag">React</span>
+            <span class="tag">API</span>
+            <span class="tag">HelpDesk</span>
+          </div>
+          <div class="project-actions">
+            <a class="ghost" href="https://github.com/Rogeriosil/helpdesk-sistema-chamados" target="_blank" rel="noopener noreferrer">Ver projeto</a>
+          </div>
+        </div>
+
+        <div class="card project">
+          <h3>Gestão de Clientes Fullstack</h3>
+          <p>Sistema fullstack de gestão de clientes com API Flask, autenticação JWT e CRUD.</p>
+          <div class="tags">
+            <span class="tag">Flask</span>
+            <span class="tag">JWT</span>
+            <span class="tag">CRUD</span>
+            <span class="tag">Fullstack</span>
+          </div>
+          <div class="project-actions">
+            <a class="ghost" href="https://github.com/Rogeriosil/gestao-clientes-fullstak" target="_blank" rel="noopener noreferrer">Ver projeto</a>
+          </div>
+        </div>
+
+        <div class="card project">
+          <h3>Loja Vendas</h3>
+          <p>Site profissional de vendas com landing page, portfólio e automações básicas, desenvolvido com HTML, CSS e JavaScript.</p>
+          <div class="tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Landing Page</span>
+          </div>
+          <div class="project-actions">
+            <a class="ghost" href="https://github.com/Rogeriosil/loja-vendas" target="_blank" rel="noopener noreferrer">Ver projeto</a>
+          </div>
+        </div>
+
+        <div class="card project">
+          <h3>Atendimento Inteligente WhatsApp</h3>
+          <p>MVP de atendimento via WhatsApp com automação de respostas e integração por wa.me.</p>
+          <div class="tags">
+            <span class="tag">WhatsApp</span>
+            <span class="tag">Automação</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Integração</span>
+          </div>
+          <div class="project-actions">
+            <a class="ghost" href="https://github.com/Rogeriosil/atendimento-inteligente-whatsapp" target="_blank" rel="noopener noreferrer">Ver projeto</a>
+          </div>
+        </div>
+
+        <div class="card project">
+          <h3>Perfil GitHub</h3>
+          <p>Repositório com a apresentação do perfil GitHub e organização da identidade técnica online.</p>
+          <div class="tags">
+            <span class="tag">GitHub</span>
+            <span class="tag">Profile</span>
+            <span class="tag">Branding</span>
+          </div>
+          <div class="project-actions">
+            <a class="ghost" href="https://github.com/Rogeriosil/Rogeriosil" target="_blank" rel="noopener noreferrer">Ver projeto</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="container">
+      <div class="card skills-card">
+        <div class="kicker">Tecnologias</div>
+        <h2 class="section-title">Stack principal</h2>
+        <div class="skills-list">
+          <span>Python</span><span>Flask</span><span>APIs REST</span><span>Pandas</span>
+          <span>PyAutoGUI</span><span>SQL</span><span>Automação de Processos</span>
+          <span>Integração de Sistemas</span><span>Git</span><span>GitHub</span>
+          <span>Backend</span><span>Jupyter Notebook</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="especializacao">
+    <div class="container">
+      <div class="card special-card">
+        <div class="kicker">Especialização</div>
+        <h2 class="section-title">Experiência técnica e especialização</h2>
+        <div class="special-grid">
+          <div class="special-box">
+            <h3>Especialização</h3>
+            <ul>
+              <li>Desenvolvimento de APIs REST com Flask.</li>
+              <li>Automação de processos com Python.</li>
+              <li>Integração entre sistemas e rotinas web.</li>
+              <li>Tratamento e análise de dados.</li>
+            </ul>
+          </div>
+          <div class="special-box">
+            <h3>Experiência prática</h3>
+            <ul>
+              <li>Criação de sistemas backend completos.</li>
+              <li>Desenvolvimento de automações para tarefas repetitivas.</li>
+              <li>Consumo e integração de APIs.</li>
+              <li>Estruturação de aplicações web com Python e JavaScript.</li>
+            </ul>
+          </div>
+          <div class="special-box">
+            <h3>Tecnologias principais</h3>
+            <ul>
+              <li>Python, Flask, Pandas e PyAutoGUI.</li>
+              <li>Git, GitHub e SQL.</li>
+              <li>APIs REST e automação de processos.</li>
+            </ul>
+          </div>
+          <div class="special-box">
+            <h3>Objetivo profissional</h3>
+            <ul>
+              <li>Atuar como Desenvolvedor Back-End Python Júnior.</li>
+              <li>Contribuir com automações, integrações e soluções escaláveis.</li>
+              <li>Evoluir em ambiente técnico com projetos reais.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="github-auto">
+    <div class="container">
+      <div class="card github-card">
+        <div class="kicker">GitHub</div>
+        <h2 class="section-title">GitHub automático e estatísticas</h2>
+        <div class="github-stats">
+          <div class="github-stat">
+            <div class="small">Repositórios públicos</div>
+            <div class="big" id="repoCount">--</div>
+          </div>
+          <div class="github-stat">
+            <div class="small">Seguidores</div>
+            <div class="big" id="followersCount">--</div>
+          </div>
+          <div class="github-stat">
+            <div class="small">Seguindo</div>
+            <div class="big" id="followingCount">--</div>
+          </div>
+        </div>
+        <p class="github-note">A lista abaixo busca automaticamente seus repositórios públicos mais recentes.</p>
+        <div class="loading" id="loadingRepos">Carregando repositórios do GitHub...</div>
+        <div class="github-grid" id="githubRepos"></div>
+        <div class="project-actions" style="margin-top:22px">
+          <a class="btn btn-primary" href="https://github.com/Rogeriosil" target="_blank" rel="noopener noreferrer">Ver todos os projetos no GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="container contact-grid">
+      <div class="contact-cta">
+        <div class="kicker" style="color:#dbeafe">Contato</div>
+        <h2 class="section-title" style="margin-top:0;color:#fff">Aberto a oportunidades em backend Python</h2>
+        <p>
+          Estou em busca de oportunidades para atuar com desenvolvimento backend,
+          APIs, automação e integração de sistemas. Posso contribuir com dedicação,
+          aprendizado rápido e foco em soluções práticas.
+        </p>
+        <div class="mini-note">WhatsApp já integrado para contato rápido.</div>
+      </div>
+
+      <div class="card contact-card">
+        <div class="contact-item"><div class="label">E-mail</div><div class="value">rogeriothelast@gmail.com</div></div>
+        <div class="contact-item"><div class="label">LinkedIn</div><div class="value"><a href="https://www.linkedin.com/in/rogerio-de-oliveira-silva1" target="_blank" rel="noopener noreferrer">linkedin.com/in/rogerio-de-oliveira-silva1</a></div></div>
+        <div class="contact-item"><div class="label">GitHub</div><div class="value"><a href="https://github.com/Rogeriosil" target="_blank" rel="noopener noreferrer">github.com/Rogeriosil</a></div></div>
+        <div class="contact-item"><div class="label">WhatsApp</div><div class="value"><a href="https://wa.me/5511952150048" target="_blank" rel="noopener noreferrer">11 95215-0048</a></div></div>
+        <div class="contact-item"><div class="label">Localização</div><div class="value">São Paulo, Brasil</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">© 2026 Rogério de Oliveira Silva • Portfólio profissional</div>
+  <a class="whatsapp" href="https://wa.me/5511952150048" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+
+  <script>
+    const username = "Rogeriosil";
+    const reposEl = document.getElementById("githubRepos");
+    const loadingEl = document.getElementById("loadingRepos");
+
+    async function loadGithubData() {
+      try {
+        const userRes = await fetch(`https://api.github.com/users/${username}`);
+        const user = await userRes.json();
+
+        document.getElementById("repoCount").textContent = user.public_repos ?? "--";
+        document.getElementById("followersCount").textContent = user.followers ?? "--";
+        document.getElementById("followingCount").textContent = user.following ?? "--";
+
+        const repoRes = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
+        const repos = await repoRes.json();
+
+        loadingEl.style.display = "none";
+
+        repos.forEach(repo => {
+          const card = document.createElement("div");
+          card.className = "card project";
+          card.innerHTML = `
+            <h3>${repo.name}</h3>
+            <p>${repo.description ? repo.description : "Repositório público no GitHub."}</p>
+            <div class="tags">
+              <span class="tag">${repo.language ? repo.language : "Código"}</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">Atualizado</span>
+            </div>
+            <div class="project-actions">
+              <a class="ghost" href="${repo.html_url}" target="_blank" rel="noopener noreferrer">Ver repositório</a>
+            </div>
+          `;
+          reposEl.appendChild(card);
+        });
+      } catch (error) {
+        loadingEl.textContent = "Não foi possível carregar os dados do GitHub agora.";
+      }
+    }
+
+    loadGithubData();
+  </script>
+</body>
+</html>
